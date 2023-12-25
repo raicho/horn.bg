@@ -166,6 +166,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'termsOfService' => [
+            'required' => 'To continue, you must agree to the terms of service'
+        ],
+        'form_protector' => [
+            'failed' => 'The code from the image is not valid. Please try again'
+        ]
     ],
 
     /*

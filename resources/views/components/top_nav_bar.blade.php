@@ -23,9 +23,11 @@
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
+                @if(request()->user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user_logout') }}">{{ __('Logout') }}</a>
+                    </li>
+                @endif
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
