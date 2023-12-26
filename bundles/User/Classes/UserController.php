@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function logoutUser()
     {
-        session_destroy();
+        Auth::logout();
         return redirect('/');
     }
     public function homeUser()
@@ -24,6 +24,7 @@ class UserController extends Controller
     }
     public function loginUser(Request $request)
     {
+        $data['errors'] = [];
         $userdata = array(
             'email' => $request->email,
             'password' => $request->password
@@ -34,19 +35,23 @@ class UserController extends Controller
             'password' => 'required'
         );
 
-      $validator = Validator::make($request->all() , $rules);
+        $validator = Validator::make($request->all() , $rules);
 
-      if (!$validator->fails()) {
-          if(Auth::attempt($userdata, true)) {
-              $_SESSION['userId'] = Auth::user()->id;
-              return redirect()->route('user_home');
-          }
-      }
-        return view('user::login');
+        if (!$validator->fails()) {
+            if (Auth::attempt($userdata)) {
+                return redirect()->route('user_home');
+            }
+
+            $data['errors']['not_logged'] = [
+                'error' => __('validation.custom.user.not_logged')
+            ];
+        }
+        return view('user::login', $data);
     }
     public function registerUser(Request $request)
     {
         $data = [];
+        $data['errors'] = [];
         if($request->isMethod('POST')) {
             $errors = [];
             $validator = Validator::make($request->all(), [
@@ -83,7 +88,8 @@ class UserController extends Controller
 
             $data['errors'] = $errors;
             if(count($data['errors']) == 0) {
-                UserModel::create(request(['name', 'email', 'password']));
+                $user = UserModel::create(request(['name', 'email', 'password']));
+                Auth::login($user);
                 return redirect()->route('user_home');
             }
         }

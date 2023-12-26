@@ -171,6 +171,9 @@ return [
         ],
         'form_protector' => [
             'failed' => 'The code from the image is not valid. Please try again'
+        ],
+        'user' => [
+            'not_logged' => 'Incorrect username or password. Please try again.'
         ]
     ],
 

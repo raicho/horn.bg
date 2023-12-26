@@ -1,7 +1,7 @@
 <?php
 
 namespace User\Middlewares;
-
+use Illuminate\Session\Middleware\StartSession;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 class UserMiddleware

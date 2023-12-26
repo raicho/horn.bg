@@ -2,6 +2,9 @@
 
 return [
     'register' => [
-        'title' => 'Registration'
+        'title' => 'Registration',
+    ],
+    'login' => [
+        'title' => 'Login'
     ]
 ];

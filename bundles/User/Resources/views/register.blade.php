@@ -21,6 +21,7 @@
         <div class="col-md-12">
             <label for="email" class="form-label">{{ __('forms.emailLabel') }}</label>
             <input type="text" name="email" value="{{  request('email') }}" class="form-control" id="email">
+
             @if(isset($errors['email']))
                 @foreach($errors['email']  as $emailError)
                     <div class="alert alert-danger mt-1 mb-1"> {{ $emailError }}</div>

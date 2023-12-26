@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('pageTitle')
-    {{  __('pages.register.title')  }}
+    {{  __('pages.login.title')  }}
 @endsection
 
 @section('content')
@@ -22,6 +22,12 @@
             <input type="password" name="password" class="form-control" id="password">
             @if(isset($errors['password']))
                 @foreach($errors['password']  as $error)
+                    <div class="alert alert-danger mt-1 mb-1"> {{ $error }}</div>
+                @endforeach
+            @endif
+
+            @if(isset($errors['not_logged']))
+                @foreach($errors['not_logged'] as $error)
                     <div class="alert alert-danger mt-1 mb-1"> {{ $error }}</div>
                 @endforeach
             @endif
