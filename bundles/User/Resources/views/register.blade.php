@@ -67,11 +67,11 @@
             <button type="button" class="btn h-100 btn-secondary float-start w-100" id="reload">New code</button>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div id="protector"></div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-7">
             <input type="text" name="code" class="form-control h-100" id="code" placeholder="Enter the code from the image here">
         </div>
         @if(isset($errors['code']))
