@@ -31,9 +31,17 @@
                     <div class="alert alert-danger mt-1 mb-1"> {{ $error }}</div>
                 @endforeach
             @endif
-            TODO: forgot password
         </div>
-        <div class="col-md-6 offset-md-3">   <button type="submit" class="btn btn-primary w-100">{{ __('buttons.Login') }}</button></div>
+        <div class="col-md-12">
+            <a class="float-md-start d-block mt-1  text-decoration-none"
+               href="{{ route('user_forgot_password') }}">{{ __('pages.login.forgot_password_link_text') }}</a>
+
+            <a class="float-md-end d-block mt-1  text-decoration-none"
+               href="{{ route('register_page') }}">{{ __('pages.login.dont_have_an_account_link_text') }}</a>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <button type="submit" class="btn btn-primary w-100">{{ __('buttons.Login') }}</button>
+        </div>
     </form>
 @endsection
 

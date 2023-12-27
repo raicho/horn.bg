@@ -7,6 +7,8 @@ const USER_MODELS_PATH = USER_BASE_PATH.'Models/';
 const USER_MIDDLEWARES_PATH = USER_BASE_PATH.'Middlewares/';
 const USER_ROUTES_PATH = USER_BASE_PATH.'Routes/';
 
+const USER_MAIL_PATH = USER_BASE_PATH.'Mail/';
+
 use User\Services\UserServiceProvider;
 use Rkstylex\Services\Loader;
 
@@ -25,3 +27,6 @@ Loader::loadFilesInDirectory(USER_MODELS_PATH);
 Loader::loadFilesInDirectory(USER_MIDDLEWARES_PATH);
 // register routes //
 Loader::loadFilesInDirectory(USER_ROUTES_PATH);
+
+// register mails //
+Loader::loadFilesInDirectory(USER_MAIL_PATH);

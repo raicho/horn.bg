@@ -1,17 +1,65 @@
 <?php
 
 namespace User\Classes;
-
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use FormProtector\Classes\FormProtector;
+use User\Models\PasswordResetModel;
 use User\Models\UserModel;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
+use \User\Mail\ForgotPassword as MailForgotPassword;
 class UserController extends Controller
 {
+
+    public function resetPassword($token, Request $request)
+    {
+        // TODO:
+        $resetPasswordResult = PasswordResetModel::where('token', $token)->first();
+        dd($resetPasswordResult->email);
+    }
+
+    /**
+     * @param Request $request
+     * @return Application|Factory|View
+     */
+    public function forgotPasswordUser(Request $request): View|Factory|Application
+    {
+        $data['errors'] = [];
+        if($request->isMethod('POST')) {
+            $rules = array(
+                'email' => 'email',
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+            if (count($validator->messages()) == 0) {
+                $email = $request->get('email');
+                $userResult = UserModel::where('email', $email)->first();
+
+                if ($userResult) {
+                    $userResult->token = Str::random(60);
+                    $forgotPassword = new MailForgotPassword($userResult->toArray());
+                    $forgotPassword->subject(__('mails.forgot_password.subject'));
+                    PasswordResetModel::where('email', $email)->delete();
+                    $passwordResetModel = new PasswordResetModel();
+                    $passwordResetModel->email = $userResult->email;
+                    $passwordResetModel->token = $userResult->token;
+                    $passwordResetModel->created_at = now();
+                    $passwordResetModel->save();
+                    Mail::to($email)->send($forgotPassword);
+                }
+            } else {
+                $data['errors'] = $validator->errors()->toArray();
+            }
+        }
+        return view('user::forgot_password', $data);
+    }
 
     public function logoutUser()
     {
