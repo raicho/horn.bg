@@ -8,12 +8,12 @@
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
         <tr>
             <td align="center" style="padding: 20px 0;">
-                <h1 style="margin-bottom: 20px;">{{  __('mails.forgot_password.title')  }} </h1>
+                <h1 style="margin-bottom: 20px;">{{  __('mails.verification_link.title')  }} </h1>
                 <p>{{ __('mails.Hello') }} {{ $data['name'] }}, </p>
                 <p>
-                    {{ __('mails.forgot_password.message') }}
+                    {{ __('mails.verification_link.message') }}
                 </p>
-                <p><a href="{{ route('reset_password', $data['token']) }}">{{ __('buttons.ResetYourPassword') }}</a></p>
+                <p><a href="{{ route('confirm_email', $data['code']) }}">{{ __('buttons.VerifyEmail') }}</a></p>
 
             </td>
         </tr>

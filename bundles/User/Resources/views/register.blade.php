@@ -51,8 +51,8 @@
         </div>
 
         <div class="col-12">
-            <div class="form-check" data-bs-toggle="modal" data-bs-target="#termsOfServiceModal">
-                <input class="form-check-input" name="terms_of_service" type="checkbox" id="termsOfService">
+            <div class="form-check">
+                <input class="form-check-input checkbox-modal" data-target="termsOfServiceModal" data-checked="0" name="terms_of_service" type="checkbox" id="termsOfService">
                 <label class="form-check-label" for="termsOfService">
                     {{  __('forms.termsOfServiceLabel')  }}
                 </label>
@@ -98,12 +98,12 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="termsOfServiceModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="termsOfServiceModal" tabindex="-1"
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Terms of service title</h5>
+                    <h5 class="modal-title" >Terms of service title</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

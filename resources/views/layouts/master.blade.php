@@ -16,6 +16,13 @@
 
 
 <div class="container">
+
+    @if(session('flash-message'))
+        <div id="flash-message" class="flash-balloon alert alert-{{ session('flash-message')['type'] }}">
+            <button type="button" id="flash-balloon-close bubble left" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+            {{ session('flash-message')['content'] }}
+        </div>
+    @endif
     @yield('content')
 </div>
 
