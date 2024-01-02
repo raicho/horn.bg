@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 
 return [
+    'welcome' => [
+      'title' => 'Welcome'
+    ],
     'register' => [
         'title' => 'Registration',
         'alert_msg' => 'Hello, :user, welcome aboard!'
