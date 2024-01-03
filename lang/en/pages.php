@@ -39,5 +39,10 @@ return [
         'content' => 'We have sent you a new email verification link. Please check your inbox.',
         'error' => 'The user you are looking for does not exist. Please ensure you have entered the correct email address',
         'error_user_verification_exist' => 'Sorry, but this email is already associated with a confirmed account in our system.',
+    ],
+    'user' => [
+        'dashboard' => [
+            'title' => 'Dashboard'
+        ]
     ]
 ];
