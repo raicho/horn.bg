@@ -14,12 +14,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
-
-                @if(request()->user())
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user_logout') }}">{{ __('Logout') }}</a>
-                    </li>
-                @endif
             </ul>
 
             <div class="dropdown">
@@ -28,6 +22,9 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end w-100" aria-labelledby="dropdownMenuButton">
                     @if(auth()->user())
+                        @if(auth()->user()->is_admin == 1)
+                            <li><a class="dropdown-item" href="{{ route('admin_dashboard') }}">{{ __('navbars.top_nav.AdminPanelLinkTitle') }}</a></li>
+                        @endif
                         <li><a class="dropdown-item" href="{{ route('user_logout') }}">{{ __('navbars.top_nav.logoutLinkTitle') }}</a></li>
                     @else
                         <li><a class="dropdown-item" href="{{ route('register_page') }}">{{ __('navbars.top_nav.registerLinkTitle') }}</a></li>

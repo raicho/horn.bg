@@ -168,7 +168,7 @@ class UserController extends Controller
      */
     public function homeUser()
     {
-        return view('user::home');
+        return view('user::dashboard');
     }
 
     /**

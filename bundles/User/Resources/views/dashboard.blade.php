@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('pageTitle')
-    {{  __('pages.register.title')  }}
+    {{  __('pages.user.dashboard.title')  }}
 @endsection
 
 @section('content')
