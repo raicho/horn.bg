@@ -6,18 +6,16 @@ const USER_CLASSES_PATH = USER_BASE_PATH.'Classes/';
 const USER_MODELS_PATH = USER_BASE_PATH.'Models/';
 const USER_MIDDLEWARES_PATH = USER_BASE_PATH.'Middlewares/';
 const USER_ROUTES_PATH = USER_BASE_PATH.'Routes/';
-
 const USER_MAIL_PATH = USER_BASE_PATH.'Mail/';
+const USER_SEEDERS_PATH = USER_BASE_PATH.'Seeders/';
 
 use User\Services\UserServiceProvider;
 use Rkstylex\Services\Loader;
-
 // load config //
 require_once (USER_CONFIG_PATH.'config.php');
 // load service //
 require_once (USER_SERVICES_PATH.'UserServiceProvider.php');
 // register service //
-
 app()->register(UserServiceProvider::class);
 // load all classes
 Loader::loadFilesInDirectory(USER_CLASSES_PATH);
@@ -27,6 +25,8 @@ Loader::loadFilesInDirectory(USER_MODELS_PATH);
 Loader::loadFilesInDirectory(USER_MIDDLEWARES_PATH);
 // register routes //
 Loader::loadFilesInDirectory(USER_ROUTES_PATH);
-
 // register mails //
 Loader::loadFilesInDirectory(USER_MAIL_PATH);
+// register seeders //
+Loader::loadFilesInDirectory(USER_SEEDERS_PATH);
+// call seeders example: php artisan db:seed --class="User\Seeders\UserSeeder"

@@ -196,7 +196,7 @@ class UserController extends Controller
                 //TODO: Verification code by mail or sms
                 if (Auth::attempt($userdata)) {
                     $flashMessage = __('pages.login.welcomeBack', ['user' => Auth::user()->name]);
-                    return redirect()->route('user_home')->with('flash-message', ['type' => 'success', 'content' => $flashMessage]);
+                        return redirect()->route('user_home')->with('flash-message', ['type' => 'success', 'content' => $flashMessage]);
                 }
             }
         }
