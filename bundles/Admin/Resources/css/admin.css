@@ -1,0 +1,117 @@
+@import "~bootstrap";
+@import "bootstrap-icons";
+
+#flash-message {
+    z-index:  10000;
+}
+
+.flash-balloon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 50%;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px rgb(122, 122, 122);
+}
+
+
+#flash-balloon-close {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    border-radius: 5px;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.col-box {
+    position: relative;
+    display: block;
+    border-radius: 5px;
+    height: 100px;
+    border-top: 4px double #7a7a7a;
+}
+
+.col-box-center-title {
+    width: 100%;
+    border-radius: 5px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.col-box-bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+}
+
+#admin-menu li {
+    width: 100%;
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 5px;
+    border: 1px solid #7a7a7a;
+    border-left: 0;
+}
+
+#admin-menu a {
+    color: #FFF;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+#admin-menu .active {
+    background: #FFFFFF;
+}
+
+#admin-menu .active a {
+    color: #000000;
+}
+
+
+.admin-pagination a {
+    text-decoration: none;
+}
+
+.admin-pagination .w-5 {
+    width: 20px;
+}
+
+.admin-pagination .h-5 {
+    height: 20px;
+}
+
+
+#mobile-menu {
+    float: right;
+    position: absolute;
+    right: 64px;
+    top: 20px;
+    transform: rotate(90deg);
+    border: 1px solid #FFFFFF;
+}
+
+#profile-menu {
+    float: right;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+/**
+    pagination
+ */
+
+.custom-pagination .page-link:focus {
+    box-shadow: none;
+}
+

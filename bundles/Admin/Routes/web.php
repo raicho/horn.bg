@@ -8,6 +8,10 @@ Route::group(['middleware' => ['web', AdminMiddleware::class, 'throttle:100,1']]
     Route::get('admin/', [AdminController::class, 'dashboardAdmin'])
         ->name('admin_dashboard');
 
-    Route::get('admin/users', [AdminController::class, 'usersAdmin'])
+    Route::match(['GET', 'POST'], 'admin/users', [AdminController::class, 'usersAdmin'])
         ->name('admin_users');
+
+    Route::post('admin/user/delete/{id}', [AdminController::class, 'deleteUserByAdmin'])
+        ->where('id', '[0-9]+')
+        ->name('admin_delete_user');
 });

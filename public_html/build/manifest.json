@@ -1,4 +1,28 @@
 {
+  "_modal-cb2ad701.js": {
+    "file": "assets/modal-cb2ad701.js"
+  },
+  "bootstrap-icons.woff": {
+    "file": "assets/bootstrap-icons-d0346eea.woff",
+    "src": "bootstrap-icons.woff"
+  },
+  "bootstrap-icons.woff2": {
+    "file": "assets/bootstrap-icons-5b2dd4d4.woff2",
+    "src": "bootstrap-icons.woff2"
+  },
+  "bundles/Admin/Resources/css/admin.css": {
+    "file": "assets/admin-977b4389.css",
+    "isEntry": true,
+    "src": "bundles/Admin/Resources/css/admin.css"
+  },
+  "bundles/Admin/Resources/js/admin.js": {
+    "file": "assets/admin-94e42c2e.js",
+    "imports": [
+      "_modal-cb2ad701.js"
+    ],
+    "isEntry": true,
+    "src": "bundles/Admin/Resources/js/admin.js"
+  },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
     "file": "assets/bootstrap-icons-d0346eea.woff",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
@@ -13,7 +37,10 @@
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-daa983ba.js",
+    "file": "assets/app-5413504d.js",
+    "imports": [
+      "_modal-cb2ad701.js"
+    ],
     "isEntry": true,
     "src": "resources/js/app.js"
   }
